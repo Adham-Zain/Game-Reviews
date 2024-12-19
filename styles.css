@@ -1,0 +1,173 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Nerko One", cursive;
+}
+
+body {
+    font-family: "Comfortaa", cursive;
+}
+
+
+.myCard {
+    transition: .5s;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &:hover .layer {
+        opacity: 0;
+    }
+}
+
+.layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #32383e;
+    z-index: 1;
+    opacity: 0.3;
+    transition: .5s;
+}
+
+.navbar {
+    background-color: #3A497B;
+    width: 100%;
+    left: 0;
+    z-index: 99;
+
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+
+    .navbar-brand img {
+        width: 2.5rem;
+    }
+
+    .nav-link {
+        color: #fff;
+        text-transform: uppercase;
+        font-size: .90rem;
+        cursor: pointer;
+        &:hover {
+            color: #09c;
+        }
+
+        &.active {
+            color: #09c;
+
+        }
+
+    }
+
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0;
+}
+
+.card-footer {
+    span {
+        background-color: #32383e;
+        font-size: .75rem;
+    }
+}
+
+.loaderSection {
+    background-color: rgba(50, 56, 62, 0.5);
+    z-index: 9999;
+}
+
+.loader {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 1s linear infinite
+}
+.loader::before,
+.loader::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 5px solid #FFF;
+    animation: prixClipFix 2s linear infinite;
+}
+
+.loader::after {
+    border-color: #FF3D00;
+    animation: prixClipFix 2s linear infinite, rotate 0.5s linear infinite reverse;
+    inset: 6px;
+}
+
+.detailesSection *{
+    margin: .5rem 0 .5rem 0;
+}
+.detailesSection{
+    z-index: 999;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes prixClipFix {
+    0% {
+        clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+    }
+
+    25% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+    }
+
+    50% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+    }
+
+    75% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+    }
+
+    100% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+    }
+}
+
+@media (min-width:780px) {
+    .main {
+        margin-top: -7rem;
+    }
+
+    .navbar {
+        width: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .card {
+        height: 25rem;
+        p{
+            max-height: 5rem;
+            overflow: hidden;
+        }
+        p {
+            font-size: .80rem;
+        }
+    }
+
+}
